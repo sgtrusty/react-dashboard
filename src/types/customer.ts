@@ -6,6 +6,7 @@ export type Customer = {
   type: CustomerTypes;
   riskScore?: CustomerRiskScore; // Not calculated, low, medium, high
   status: CustomerStatus;
+  hasMoreActions?: boolean;
 };
 
 export enum CustomerTypes {
@@ -43,6 +44,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    avatar: "user-11.png",
   },
   {
     created: new Date("2024-05-15T14:02:06"),
@@ -50,6 +52,7 @@ export const CustomerSeedData: Customer[] = [
     email: "janos.kovacs@example.com",
     type: CustomerTypes.aiscan2,
     status: CustomerStatus.waiting,
+    avatar: "user-02.png",
   },
   {
     created: new Date("2024-05-03T08:57:14"),
@@ -58,6 +61,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    avatar: "user-03.png",
   },
   {
     created: new Date("2024-05-03T08:33:55"),
@@ -66,6 +70,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    avatar: "user-04.png",
   },
   {
     created: new Date("2024-05-03T08:23:24"),
@@ -74,6 +79,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    avatar: "user-05.png",
   },
   {
     created: new Date("2024-05-01T10:45:58"),
@@ -81,6 +87,7 @@ export const CustomerSeedData: Customer[] = [
     email: "gabriella.horvath@example.com",
     type: CustomerTypes.aiscan2,
     status: CustomerStatus.accepted,
+    avatar: "user-06.png",
   },
   {
     created: new Date("2024-03-22T09:57:47"),
@@ -89,6 +96,8 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    hasMoreActions: true,
+    avatar: "user-07.png",
   },
   {
     created: new Date("2024-03-22T09:53:16"),
@@ -97,6 +106,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.approved,
+    avatar: "user-08.png",
   },
   {
     created: new Date("2024-03-21T10:15:32"),
@@ -105,6 +115,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.high,
     status: CustomerStatus.rejected,
+    avatar: "user-09.png",
   },
   {
     created: new Date("2024-03-20T15:22:45"),
@@ -113,6 +124,8 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.medium,
     status: CustomerStatus.cancelled,
+    hasMoreActions: true,
+    avatar: "user-10.png",
   },
   {
     created: new Date("2024-03-19T12:18:25"),
@@ -121,6 +134,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.ready,
+    avatar: "user-11.png",
   },
   {
     created: new Date("2024-03-18T14:45:23"),
@@ -129,6 +143,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.ready,
+    avatar: "user-12.png",
   },
   {
     created: new Date("2024-03-17T16:27:58"),
@@ -137,6 +152,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.waiting,
+    avatar: "user-13.png",
   },
   {
     created: new Date("2024-03-16T10:02:47"),
@@ -145,6 +161,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.waiting,
+    avatar: "user-01.png",
   },
   {
     created: new Date("2024-03-15T11:58:12"),
@@ -153,6 +170,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.ready,
+    avatar: "user-02.png",
   },
   {
     created: new Date("2024-03-14T09:47:36"),
@@ -161,6 +179,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.waiting,
+    avatar: "user-03.png",
   },
   {
     created: new Date("2024-03-13T13:25:48"),
@@ -169,6 +188,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.ready,
+    avatar: "user-04.png",
   },
   {
     created: new Date("2024-03-12T11:37:54"),
@@ -177,6 +197,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.waiting,
+    avatar: "user-05.png",
   },
   {
     created: new Date("2024-03-11T17:18:29"),
@@ -185,6 +206,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.waiting,
+    avatar: "user-06.png",
   },
   {
     created: new Date("2024-03-10T09:43:28"),
@@ -193,6 +215,7 @@ export const CustomerSeedData: Customer[] = [
     type: CustomerTypes.aiscan2,
     riskScore: CustomerRiskScore.low,
     status: CustomerStatus.ready,
+    avatar: "user-07.png",
   },
   // ... (other rows)
 ];

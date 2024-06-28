@@ -21,7 +21,7 @@ function CustomerRiskIcon({ riskScore }: any) {
 }
 
 export default function CustomerRiskField ({ riskScore }: { riskScore: any }) {
-  let textColor: string = "bg-gray-300 text-gray-300";
+  let textColor: string = "text-gray-300";
   if (riskScore === CustomerRiskScore.low) {
     textColor = "bg-success text-success";
   } else if (riskScore === CustomerRiskScore.high) {
