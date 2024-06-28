@@ -11,7 +11,7 @@ export default function HomePageView() {
       <div className="mx-auto max-w-7xl">
         <Breadcrumb longName="KYC Application Reports" pageName="Reports" />
 
-        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+        <div className="mt-2 mb-2 grid grid-cols-12 gap-2 md:mt-4 md:gap-6 2xl:mt-5 2xl:gap-4">
           <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-8">
             <ChartOne />
           </div>
