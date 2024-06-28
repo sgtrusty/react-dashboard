@@ -1,12 +1,13 @@
 import CustomerAreaChart from "@/components/Charts/CustomerAreaChart";
 import { CustomerStatus } from "@/types/customer";
+import { useEffect, useState } from "react";
 
 interface IAreaData {
     created: Date;
     status: CustomerStatus;
 }
 
-function calculateMonthsFromLowest(lowestDate: Date, totalEntries: number, customerData: IAreaData[]) : {totalSeries: number[], approvedSeries: number[]} {
+function calculateMonthsFromLowest(lowestDate: Date, totalEntries: number, customerData: IAreaData[]) : [number[], number[]] {
   // Extract year and month from lowestDate
   const lowestYear = lowestDate.getFullYear();
   const lowestMonth = lowestDate.getMonth();
@@ -27,20 +28,33 @@ function calculateMonthsFromLowest(lowestDate: Date, totalEntries: number, custo
     }
   });
 
-  return {
-    totalSeries: totalSeries,
-    approvedSeries: approvedSeries,
-  };
+  return [
+    totalSeries,
+    approvedSeries
+  ];
 }
 
 export default function DashboardAreaChart({data} : {data: IAreaData[]}) {
-    const fromDate = data.reduce((prevData, currData) => currData.created < prevData.created ? currData : prevData).created;
-    const toDate = new Date();
-    const monthsDifference = (toDate.getFullYear() - fromDate.getFullYear()) * 12 + (toDate.getMonth() - fromDate.getMonth());
-  
-    const {totalSeries, approvedSeries} = calculateMonthsFromLowest(fromDate, monthsDifference, data);
+  const [fromDate, setFromDate] = useState<Date>(new Date());  
+  const [toDate, setToDate] = useState<Date>(new Date());
+  const [totalSeries, setTotalSeries] = useState<number[]>([]);
+  const [approvedSeries, setApprovedSeries] = useState<number[]>([]);
 
-    return (
-        <CustomerAreaChart fromDate={fromDate} toDate={toDate} approvedSeries={approvedSeries} totalSeries={totalSeries}/>
-    );
+  useEffect(() => {
+    console.log(data);
+    const _fromDate = data.reduce((prevData, currData) => currData.created < prevData.created ? currData : prevData).created;
+    const _toDate = new Date();
+    
+    setFromDate(_fromDate);
+    setToDate(_toDate);
+
+    const monthsDifference = (_toDate.getFullYear() - _fromDate.getFullYear()) * 12 + (_toDate.getMonth() - _fromDate.getMonth());
+    const [total, approved] = calculateMonthsFromLowest(_fromDate, monthsDifference, data);
+    setTotalSeries(total);
+    setApprovedSeries(approved);
+  }, []);
+
+  return (
+      <CustomerAreaChart fromDate={fromDate} toDate={toDate} approvedSeries={approvedSeries} totalSeries={totalSeries}/>
+  );
 }

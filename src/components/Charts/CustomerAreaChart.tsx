@@ -1,7 +1,7 @@
 "use client";
 
 import { ApexOptions } from "apexcharts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -126,31 +126,45 @@ interface AreaSerie {
   data: number[];
 }
 
-const CustomerAreaChart: React.FC = ({fromDate, toDate, approvedSeries, totalSeries} : any) => {
+const CustomerAreaChart: React.FC = ({
+  fromDate,
+  toDate,
+  approvedSeries,
+  totalSeries,
+}: any) => {
   const getReadableDate = (date: Date) => {
-    return date.toLocaleString("en-US", {
-      month: "2-digit",
-      day: "2-digit",
-      year: "numeric",
-      hour12: false,
-    })
-    .replace(",", "");
+    return date
+      .toLocaleString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+        year: "numeric",
+        hour12: false,
+      })
+      .replace(",", "");
   };
 
-  const fromDateHuman = getReadableDate(fromDate);
-  const toDateHuman = getReadableDate(toDate);
+  const [fromDateHuman, setFromDateHuman] = useState<string>();
+  const [toDateHuman, setToDateHuman] = useState<string>();
 
-  const series: AreaSerie[] = [
+  useEffect(() => {
+    setFromDateHuman(getReadableDate(fromDate));
+    setToDateHuman(getReadableDate(toDate));
+  }, [fromDate, toDate]);
+
+  const [series, setSeries] = useState<AreaSerie[]>();
+
+  useEffect(() => {
+    setSeries([
       {
         name: "Approved",
         data: approvedSeries,
       },
-
       {
         name: "Customers",
         data: totalSeries,
       },
-    ];
+    ]);
+  }, [approvedSeries, totalSeries]);
 
   return (
     <>
@@ -162,7 +176,9 @@ const CustomerAreaChart: React.FC = ({fromDate, toDate, approvedSeries, totalSer
             </span>
             <div className="w-full">
               <p className="font-semibold text-success">Approved Clients</p>
-              <p className="text-sm font-medium">{fromDateHuman} - {toDateHuman}</p>
+              <p className="text-sm font-medium">
+                {fromDateHuman} - {toDateHuman}
+              </p>
             </div>
           </div>
           <div className="flex min-w-47.5">
@@ -171,7 +187,9 @@ const CustomerAreaChart: React.FC = ({fromDate, toDate, approvedSeries, totalSer
             </span>
             <div className="w-full">
               <p className="font-semibold text-secondary">Total Customers</p>
-              <p className="text-sm font-medium">{fromDateHuman} - {toDateHuman}</p>
+              <p className="text-sm font-medium">
+                {fromDateHuman} - {toDateHuman}
+              </p>
             </div>
           </div>
         </div>

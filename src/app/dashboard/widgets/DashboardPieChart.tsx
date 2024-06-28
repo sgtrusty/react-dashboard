@@ -1,14 +1,15 @@
 import CustomerPieChart from "@/components/Charts/CustomerPieChart";
 import { CustomerStatus } from "@/types/customer";
+import { useEffect, useState } from "react";
 
-const statusKeys: string[] = Object.keys(CustomerStatus).filter(x => isNaN(parseInt(x)));
+const statusLabels: string[] = Object.keys(CustomerStatus).filter(x => isNaN(parseInt(x)));
 
 interface IPieData {
     status: CustomerStatus;
 }
 
 function calculateSeries(data: IPieData[]) : number[] {
-  const series: number[] = Array.from({ length: statusKeys.length }, () => 0);
+  const series: number[] = Array.from({ length: statusLabels.length }, () => 0);
   for (let load of data) {
     series[load.status]!++;
   }
@@ -16,10 +17,13 @@ function calculateSeries(data: IPieData[]) : number[] {
 }
 
 export default function DashboardPieChart({data} : {data: IPieData[]}) {
-    const labels = statusKeys;
-    const series = calculateSeries(data);
+  const [series, setSeries] = useState<number[]>([]);
 
-    return (
-      <CustomerPieChart labels={labels} series={series}/>
-    );
+  useEffect(() => {
+    setSeries(calculateSeries(data));
+  }, [])
+
+  return (
+    <CustomerPieChart labels={statusLabels} series={series}/>
+  );
 }
