@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/keepsake
 .pnp.js
 .yarn/install-state.gz
 
