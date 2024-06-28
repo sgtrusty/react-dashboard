@@ -78,7 +78,7 @@ const CustomerTable = ({data} : {data: CustomerData[]}) => {
                   <div className="flex items-center space-x-3.5">
                     {customerData.hasMoreActions ? (
                       <button className="hover:text-primary">
-                        <Bars3BottomLeftIcon className="text-black h-6 w-6 -ml-1" />
+                        <Bars3BottomLeftIcon className="text-black dark:text-current h-6 w-6 -ml-1" />
                       </button>
                     ) : (
                       <>
