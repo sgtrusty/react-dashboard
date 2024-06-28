@@ -230,9 +230,6 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      content: {
-        "icon-copy": 'url("../images/icon/icon-copy-alt.svg")',
-      },
       transitionProperty: { width: "width", stroke: "stroke" },
       borderWidth: {
         6: "6px",

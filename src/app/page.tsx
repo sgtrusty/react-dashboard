@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import HomePageView from "./view";
+import DashboardView from "./dashboard/view";
 
 export const metadata: Metadata = {
   title: "Dashboard | KYC Dashboard - GreatGood Challenge",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <DefaultLayout>
-      <HomePageView />
+      <DashboardView />
     </DefaultLayout>
   );
 }

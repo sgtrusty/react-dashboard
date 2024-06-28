@@ -1,18 +1,14 @@
 import { ApexOptions } from "apexcharts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-interface ChartThreeState {
-  series: number[];
-}
-
-const options: ApexOptions = {
+const default_options: ApexOptions = {
   chart: {
     fontFamily: "Satoshi, sans-serif",
     type: "donut",
   },
-  colors: ["#3C50E0", "#6577F3", "#8FD0EF", "#0FADCF"],
-  labels: ["Desktop", "Tablet", "Mobile", "Unknown"],
+  colors: ["#FFA70B", "#219653", "#333A48", "#0FADCF", "#3C50E0", "#6577F3"],
+  labels: [/** generated from input */],
   legend: {
     show: false,
     position: "bottom",
@@ -49,15 +45,22 @@ const options: ApexOptions = {
   ],
 };
 
-const PieChart: React.FC = () => {
-  const series = [65, 34, 12, 56];
+const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series: number[]}) => {
+  const [options, setOptions] = useState<ApexOptions>(default_options);
+
+  // save perf on rendering labels once if ApexChart framework allows
+  useEffect(() => {
+    const optionsClone = {...options};
+    optionsClone.labels = labels;
+    setOptions(optionsClone);
+  }, []);
 
   return (
     <>
       <div className="mb-3 justify-between gap-4 sm:flex">
         <div>
           <h5 className="text-xl font-semibold text-black dark:text-white">
-            Visitors Analytics
+            Customer Analytics
           </h5>
         </div>
         <div>
@@ -107,27 +110,27 @@ const PieChart: React.FC = () => {
       <div className="-mx-8 flex flex-wrap items-center justify-center gap-y-3">
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-primary"></span>
+            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-warning"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> Desktop </span>
+              <span> {labels[0]} </span>
               <span> 65% </span>
             </p>
           </div>
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#6577F3]"></span>
+            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-success"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> Tablet </span>
+              <span> {labels[1]} </span>
               <span> 34% </span>
             </p>
           </div>
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#8FD0EF]"></span>
+            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-graydark"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> Mobile </span>
+              <span> {labels[2]} </span>
               <span> 45% </span>
             </p>
           </div>
@@ -136,7 +139,7 @@ const PieChart: React.FC = () => {
           <div className="flex w-full items-center">
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> Unknown </span>
+              <span> others </span>
               <span> 12% </span>
             </p>
           </div>
@@ -146,4 +149,4 @@ const PieChart: React.FC = () => {
   );
 };
 
-export default PieChart;
+export default CustomerPieChart;

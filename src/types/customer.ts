@@ -1,4 +1,4 @@
-export type Customer = {
+export type CustomerData = {
   created: Date;
   avatar?: string;
   name: string;
@@ -36,7 +36,7 @@ export const CustomerDataColors = [
   "#ffeb3b",
   "#17a2b8",
 ];
-export const CustomerSeedData: Customer[] = [
+export const CustomerSeedData: CustomerData[] = [
   {
     created: new Date("2024-05-15T14:12:27"),
     name: "KÁROLY-EDWARD RÁCZ",
@@ -47,7 +47,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-11.png",
   },
   {
-    created: new Date("2024-05-15T14:02:06"),
+    created: new Date("2024-02-15T14:02:06"),
     name: "JÁNOS KOVÁCS",
     email: "janos.kovacs@example.com",
     type: CustomerTypes.aiscan2,
@@ -64,7 +64,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-03.png",
   },
   {
-    created: new Date("2024-05-03T08:33:55"),
+    created: new Date("2024-04-03T08:33:55"),
     name: "ANDRÁS SZABÓ",
     email: "andras.szabo@example.com",
     type: CustomerTypes.aiscan2,
@@ -73,7 +73,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-04.png",
   },
   {
-    created: new Date("2024-05-03T08:23:24"),
+    created: new Date("2024-02-03T08:23:24"),
     name: "BÁLINT TÓTH",
     email: "balint.toth@example.com",
     type: CustomerTypes.aiscan2,
@@ -82,7 +82,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-05.png",
   },
   {
-    created: new Date("2024-05-01T10:45:58"),
+    created: new Date("2024-01-01T10:45:58"),
     name: "GABRIELLA HORVÁTH",
     email: "gabriella.horvath@example.com",
     type: CustomerTypes.aiscan2,
@@ -100,7 +100,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-07.png",
   },
   {
-    created: new Date("2024-03-22T09:53:16"),
+    created: new Date("2024-05-22T09:53:16"),
     name: "ISTVÁN VARGA",
     email: "istvan.varga@example.com",
     type: CustomerTypes.aiscan2,
@@ -109,7 +109,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-08.png",
   },
   {
-    created: new Date("2024-03-21T10:15:32"),
+    created: new Date("2024-06-21T10:15:32"),
     name: "ZOLTÁN LUKÁCS",
     email: "zoltan.lukacs@example.com",
     type: CustomerTypes.aiscan2,
@@ -118,7 +118,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-09.png",
   },
   {
-    created: new Date("2024-03-20T15:22:45"),
+    created: new Date("2024-01-20T15:22:45"),
     name: "ATTILA FARKAS",
     email: "attila.farkas@example.com",
     type: CustomerTypes.aiscan2,
@@ -128,7 +128,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-10.png",
   },
   {
-    created: new Date("2024-03-19T12:18:25"),
+    created: new Date("2024-02-19T12:18:25"),
     name: "NIKOLETT MOLNÁR",
     email: "nikolett.molnar@example.com",
     type: CustomerTypes.aiscan2,
@@ -137,7 +137,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-11.png",
   },
   {
-    created: new Date("2024-03-18T14:45:23"),
+    created: new Date("2024-01-18T14:45:23"),
     name: "GÁBOR BALOGH",
     email: "gabor.balogh@example.com",
     type: CustomerTypes.aiscan2,
@@ -146,7 +146,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-12.png",
   },
   {
-    created: new Date("2024-03-17T16:27:58"),
+    created: new Date("2023-12-17T16:27:58"),
     name: "ANNA NÉMETH",
     email: "anna.nemeth@example.com",
     type: CustomerTypes.aiscan2,
@@ -155,7 +155,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-13.png",
   },
   {
-    created: new Date("2024-03-16T10:02:47"),
+    created: new Date("2024-02-16T10:02:47"),
     name: "ÁDÁM FEHÉR",
     email: "adam.feher@example.com",
     type: CustomerTypes.aiscan2,
@@ -164,7 +164,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-01.png",
   },
   {
-    created: new Date("2024-03-15T11:58:12"),
+    created: new Date("2024-02-15T11:58:12"),
     name: "LÁSZLÓ FODOR",
     email: "laszlo.fodor@example.com",
     type: CustomerTypes.aiscan2,
@@ -173,7 +173,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-02.png",
   },
   {
-    created: new Date("2024-03-14T09:47:36"),
+    created: new Date("2024-02-14T09:47:36"),
     name: "TAMÁS BODNÁR",
     email: "tamas.bodnar@example.com",
     type: CustomerTypes.aiscan2,
@@ -182,7 +182,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-03.png",
   },
   {
-    created: new Date("2024-03-13T13:25:48"),
+    created: new Date("2024-02-13T13:25:48"),
     name: "JUDIT TAKÁCS",
     email: "judit.takacs@example.com",
     type: CustomerTypes.aiscan2,
@@ -191,7 +191,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-04.png",
   },
   {
-    created: new Date("2024-03-12T11:37:54"),
+    created: new Date("2024-01-12T11:37:54"),
     name: "KRISZTIÁN BÍRÓ",
     email: "krisztian.biro@example.com",
     type: CustomerTypes.aiscan2,
@@ -200,7 +200,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-05.png",
   },
   {
-    created: new Date("2024-03-11T17:18:29"),
+    created: new Date("2024-04-11T17:18:29"),
     name: "ZSÓFIA SIPOS",
     email: "zsofia.sipos@example.com",
     type: CustomerTypes.aiscan2,
@@ -209,7 +209,7 @@ export const CustomerSeedData: Customer[] = [
     avatar: "user-06.png",
   },
   {
-    created: new Date("2024-03-10T09:43:28"),
+    created: new Date("2024-05-10T09:43:28"),
     name: "BALÁZS SIMON",
     email: "balazs.simon@example.com",
     type: CustomerTypes.aiscan2,
