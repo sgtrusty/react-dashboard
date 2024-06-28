@@ -55,6 +55,23 @@ const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series
     setOptions(optionsClone);
   }, []);
 
+  const getTopN = (arr: number[], n = 10) => {
+    const _arr = arr.map((value, index) => [value, index]);
+    // by using b[0] - a[0] instead of a[0] - b[0] we can get the array in non-increasing order
+    _arr.sort((a, b) => b[0] - a[0]) 
+    return _arr.slice(0, n).map(([_, index]) => index);
+  }
+
+  const topIndexes = getTopN(series, 3);
+
+  const totalSeries = series.reduce((prev, curr) => curr + prev);
+  const totalTopIndex = series.filter((_, index) => topIndexes.includes(index)).reduce((prev, curr) => prev+curr);
+
+  const legendMap = topIndexes.map(x => ({
+    label: labels[x],
+    value: Math.round(series[topIndexes[0]] / totalSeries * 100) + "%",
+  }));
+  
   return (
     <>
       <div className="mb-3 justify-between gap-4 sm:flex">
@@ -112,8 +129,8 @@ const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series
           <div className="flex w-full items-center">
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-warning"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> {labels[0]} </span>
-              <span> 65% </span>
+              <span> {legendMap[0].label} </span>
+              <span> {legendMap[0].value} </span>
             </p>
           </div>
         </div>
@@ -121,8 +138,8 @@ const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series
           <div className="flex w-full items-center">
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-success"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> {labels[1]} </span>
-              <span> 34% </span>
+              <span> {legendMap[1].label} </span>
+              <span> {legendMap[1].value} </span>
             </p>
           </div>
         </div>
@@ -130,8 +147,8 @@ const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series
           <div className="flex w-full items-center">
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-graydark"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-              <span> {labels[2]} </span>
-              <span> 45% </span>
+              <span> {legendMap[2].label} </span>
+              <span> {legendMap[2].value} </span>
             </p>
           </div>
         </div>
@@ -140,7 +157,7 @@ const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
               <span> others </span>
-              <span> 12% </span>
+              <span> {Math.floor(100 - totalTopIndex/totalSeries * 100)}% </span>
             </p>
           </div>
         </div>
