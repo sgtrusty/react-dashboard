@@ -20,11 +20,11 @@ const DropdownUser = () => {
           <span className="block text-xs">Fullstack Dev</span>
         </span>
 
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-12 w-12 rounded-full relative w-10 h-10 overflow-hidden bg-gray-300 rounded-full dark:bg-gray-600">
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={"/images/user/me.png"}
             style={{
               width: "auto",
               height: "auto",
