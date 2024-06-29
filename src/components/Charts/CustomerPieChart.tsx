@@ -50,7 +50,9 @@ interface LegendLabel {
   value: string;
 }
 
-const CustomerPieChart: React.FC = ({labels, series} : {labels: string[], series: number[]}) => {
+type Props = {labels: string[], series: number[]};
+
+const CustomerPieChart: React.FC<Props> = ({labels, series} : Props) => {
   const [options, setOptions] = useState<ApexOptions>(default_options);
 
   // save perf on rendering labels once if ApexChart framework allows

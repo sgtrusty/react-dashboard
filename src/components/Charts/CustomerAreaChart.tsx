@@ -126,12 +126,14 @@ interface AreaSerie {
   data: number[];
 }
 
-const CustomerAreaChart: React.FC = ({
+type Props = {fromDate: Date, toDate: Date, approvedSeries: number[], totalSeries: number[]};
+
+const CustomerAreaChart: React.FC<Props> = ({
   fromDate,
   toDate,
   approvedSeries,
   totalSeries,
-}: any) => {
+}: Props) => {
   const getReadableDate = (date: Date) => {
     return date
       .toLocaleString("en-US", {
