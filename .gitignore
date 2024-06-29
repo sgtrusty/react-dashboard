@@ -38,3 +38,5 @@ next-env.d.ts
 
 # deploy (surge.sh)
 CNAME
+.env*
+.secrets*

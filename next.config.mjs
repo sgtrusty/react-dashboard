@@ -2,7 +2,7 @@
 const nextConfig = {
     images: {
         loader: 'custom',
-        loaderFile: './lib/deploy/image-loader.js',
+        loaderFile: './lib/bundler/image-loader.js',
     },
     output: 'export',
     distDir: 'out',

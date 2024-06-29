@@ -21,7 +21,7 @@ export default function DashboardPieChart({data} : {data: IPieData[]}) {
 
   useEffect(() => {
     setSeries(calculateSeries(data));
-  }, [])
+  }, [data])
 
   return (
     <CustomerPieChart labels={statusLabels} series={series}/>

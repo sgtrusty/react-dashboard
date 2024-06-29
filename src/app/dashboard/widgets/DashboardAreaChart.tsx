@@ -41,7 +41,6 @@ export default function DashboardAreaChart({data} : {data: IAreaData[]}) {
   const [approvedSeries, setApprovedSeries] = useState<number[]>([]);
 
   useEffect(() => {
-    console.log(data);
     const _fromDate = data.reduce((prevData, currData) => currData.created < prevData.created ? currData : prevData).created;
     const _toDate = new Date();
     
@@ -52,7 +51,7 @@ export default function DashboardAreaChart({data} : {data: IAreaData[]}) {
     const [total, approved] = calculateMonthsFromLowest(_fromDate, monthsDifference, data);
     setTotalSeries(total);
     setApprovedSeries(approved);
-  }, []);
+  }, [data]);
 
   return (
       <CustomerAreaChart fromDate={fromDate} toDate={toDate} approvedSeries={approvedSeries} totalSeries={totalSeries}/>

@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "deploy": "next build && npx surge out --domain knowyourgg.surge.sh",
+    "release": "env $(cat .secrets.deploy | xargs) && surge out --domain $CNAME",
+    "deploy": "yarn build && yarn release",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gulp:release": "gulp --gulpfile lib/deployer/Gulpfile.js --tasks"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
@@ -24,9 +26,11 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "gulp-surge": "^0.1.4",
     "postcss": "^8",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "surge": "^0.23.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

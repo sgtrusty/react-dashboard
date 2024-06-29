@@ -60,7 +60,7 @@ const CustomerPieChart: React.FC<Props> = ({labels, series} : Props) => {
     const optionsClone = {...options};
     optionsClone.labels = labels;
     setOptions(optionsClone);
-  }, [labels]);
+  }, [options, labels]);
 
   const getTopN = (arr: number[], n = 10) => {
     const _arr = arr.map((value, index) => [value, index]);
@@ -90,7 +90,7 @@ const CustomerPieChart: React.FC<Props> = ({labels, series} : Props) => {
       value: Math.floor(100 - totalTopIndex/totalSeries * 100) + "%"
     })
     setLegendMap(_legendMap);
-  }, [series]);
+  }, [series, labels]);
 
   if (legendMap.length == 0) {
     return (

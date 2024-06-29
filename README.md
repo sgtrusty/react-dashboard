@@ -26,3 +26,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [ ] Unit tests using Jest.
 - [ ] Mock network requests using Mirage.js
 - [ ] Improve skeleton loading, consider table component for pagination
+- [ ] Add "randomize data" button to show off functionality.
