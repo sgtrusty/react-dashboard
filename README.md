@@ -11,11 +11,12 @@ To install it, follow the instructions in the [Getting Started | Volta](https://
 
 <details><summary><b>[optional]</b> Use Yarn as a package manager</summary>
 
-
 Install with volta:
+
 - `volta install yarn`
 
 Or with npm:
+
 - `npm install --global yarn`
 
 </details>
@@ -38,8 +39,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Planned Work
 
-- [ ] CI/CD Pipelines in Github actions to publish
-- [ ] Unit tests using Jest.
-- [ ] Mock network requests using Mirage.js
-- [ ] Improve skeleton loading, consider table component for pagination
-- [ ] Add "randomize data" button to show off functionality.
+- ⚡ High Priority
+  - [ ] Unit tests using Jest.
+  - [ ] Mock network requests using Mirage.js
+- 🦪 Nice to have
+  - [ ] Add "randomize data" button to show off functionality.
+- 🐢 Low Priority
+  - [ ] CI/CD Pipelines in Github actions to publish
+  - [ ] Improve skeleton loading, consider table component for pagination
