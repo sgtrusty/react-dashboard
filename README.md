@@ -37,6 +37,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 </details>
 
+## Development Guidelines
+
+<details><summary><b>[Style]</b> TailwindCSS inspired</summary>
+
+Consider using TailwindCSS prefab components before investing development time on new efforts.
+
+- [Beautiful UI components, crafted with Tailwind](https://tailwindui.com/templates)
+- [Flowbite Blocks - Tailwind UI components](https://flowbite.com/blocks/)
+- [daisyUI adds semantic names to Tailwind](https://daisyui.com/components/)
+
+</details>
+
 ## Planned Work
 
 - ⚡ High Priority
